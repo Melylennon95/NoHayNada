@@ -40,4 +40,14 @@ public class MovimientoMonita : MonoBehaviour {
 		}
 
 	}
+
+    void OnCollisionEnter2D(Collision2D coll)
+    {
+        if (coll.gameObject.tag == "Bla")
+        {
+            //coll.gameObject.SendMessage("ApplyDamage", 10);
+            Debug.Log("Touching");
+            Destroy(coll.gameObject);
+        }
+    }
 }
