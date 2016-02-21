@@ -14,12 +14,6 @@ public class MovimientoPuerta : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		timer = timer - Time.deltaTime;
-		if (timer < 1) {
-			timer = 15;
-			randomplace = Random.Range(5f,50f);
-			randomplace = 
-		}
-		transform.position = Vector3.MoveTowards(transform.position, randomplace, speed);
+		transform.position = new Vector3(Mathf.PingPong(Time.time, 8)-5, transform.position.y, transform.position.z);
 	}
 }
