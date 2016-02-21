@@ -6,6 +6,8 @@ public class MovimientoMonita : MonoBehaviour {
 	public float speed = 3.5f;
 	public bool bDerecha = false;
 	public int jumpSpeed = 30;
+    public int vida = 5;
+    public Animator AtaquePuerta;
 
 	// Use this for initialization
 	void Start () {
@@ -43,11 +45,22 @@ public class MovimientoMonita : MonoBehaviour {
 
     void OnCollisionEnter2D(Collision2D coll)
     {
-        if (coll.gameObject.tag == "Bla")
+        if (coll.gameObject.tag == "EnemigoAtaque")
         {
             //coll.gameObject.SendMessage("ApplyDamage", 10);
-            Debug.Log("Touching");
-            Destroy(coll.gameObject);
+           // Debug.Log("Touching");
+            //AtaquePuerta.SetTrigger("Touch");
+            //Destroy(coll.gameObject);
+            vida--;
         }
+        if(vida == 0)
+        {
+            
+            Debug.Log("monita muere x.x");
+        }
+
     }
+
+
+
 }
